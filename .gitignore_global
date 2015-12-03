@@ -1,0 +1,63 @@
+*~
+
+# OS generated files #
+# -------------------------------
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+
+# Logs and databases #
+# -------------------------------
+
+*.log
+*.sql
+*.sqlite
+
+
+# Sass
+# -------------------------------
+
+.sass-cache/
+
+
+# Node.js #
+# -------------------------------
+
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+#results
+npm-debug.log
+node_modules/
+bower_components/
+
+
+# Sublime Text #
+# -------------------------------
+
+sftp-config*
+*.sublime-*
+ftpsync.settings
+
+# HG
+# -------------------------------
+
+.hg
+
+
+# switch to regexp syntax.
+# -------------------------------
+syntax: regexp

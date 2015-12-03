@@ -1,0 +1,21 @@
+# Load rbenv and set gem paths
+if which rbenv > /dev/null && which brew > /dev/null; then
+	export RBENV_ROOT="$(brew --prefix rbenv)"
+	export GEM_HOME="$(brew --prefix)/opt/gems"
+	export GEM_PATH="$(brew --prefix)/opt/gems";
+fi
+
+# Homebrew Casks app directory
+if which brew > /dev/null; then
+	export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+fi
+
+# Enable rbenv shims and autocompletion.
+if which rbenv > /dev/null; then
+	eval "$(rbenv init -)"
+fi
+
+# Editor
+if which subl > /dev/null; then
+	export EDITOR="${HOME}/.bin/subl"
+fi
