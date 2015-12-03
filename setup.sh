@@ -2,8 +2,8 @@
 
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | tr -d '\r')"
 
-# Make ~/bin folder
-if [[ ! -d $HOME/.bin/ ]] then
+# Make ~/.bin folder
+if [[ ! -d $HOME/.bin/ ]]; then
   info "creating local bin folder"
   mkdir $HOME/.bin/
   success "$HOME/.bin/ Done"
@@ -19,14 +19,22 @@ git pull origin master;
 timestamp=$(date +%Y%m%d%H%m)
 
 for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
-	if [[ -f ~/$file ]]; then
+
+	# check for old dotfiles
+	if [[ -f ~/$file && ! -h ~/$file ]]; then
+
+		# create backup directory if necessary
 		if [[ ! -d ${SOURCE_DIR}/backup_$timestamp ]]; then
 			mkdir ${SOURCE_DIR}/backup_$timestamp
 		fi
+
+		# move old files
     	echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${timestamp}"
-		mv ~/$file ${SOURCE_DIR}/dotfiles_backup_${timestamp}/$file
+		mv ~/$file ${SOURCE_DIR}/backup_${timestamp}/$file
 	fi
-    echo "Creating symlink to ${SOURCE_DIR}/${file} in ~/ ..."
+
+	# link new files
+    echo -e "Creating symlink to ${SOURCE_DIR}/${CYAN}${file}${NONE} in HOME ..."
     ln -sf ${SOURCE_DIR}/$file ~/$file
 done
 
@@ -60,16 +68,5 @@ npm install -g bower
 
 
 # Setting up the sublime symlink
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/bin/subl
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/.bin/subl
 
-# Organize dockbar
-dockutil --remove "Contacts" --no-restart
-dockutil --remove "Notes" --no-restart
-dockutil --remove "Maps" --no-restart
-dockutil --remove "FaceTime" --no-restart
-dockutil --remove "Photo Booth" --no-restart
-dockutil --remove "iBooks" --no-restart
-dockutil --remove "Launchpad" --no-restart
-dockutil --remove "System Preferences" --no-restart
-dockutil --remove "iPhoto" --no-restart
-dockutil --remove "Reminders" --no-restart

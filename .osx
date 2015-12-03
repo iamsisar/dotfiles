@@ -2,6 +2,19 @@
 
 # ~/.osx — https://mths.be/osx
 
+# Organize dockbar
+dockutil --remove "Contacts" --no-restart
+dockutil --remove "Notes" --no-restart
+dockutil --remove "Maps" --no-restart
+dockutil --remove "FaceTime" --no-restart
+dockutil --remove "Photo Booth" --no-restart
+dockutil --remove "iBooks" --no-restart
+dockutil --remove "Launchpad" --no-restart
+dockutil --remove "System Preferences" --no-restart
+dockutil --remove "iPhoto" --no-restart
+dockutil --remove "Reminders" --no-restart
+
+
 # Ask for the administrator password upfront
 sudo -v
 
