@@ -17,16 +17,17 @@ git pull origin master;
 
 # Symlink dotfiles and backup old ones if any
 timestamp=$(date +%Y%m%d%H%m)
-for file in .aliases .exports .functions .osx; do
-	if [[ -f $file ]]; then
-		if [[ ! -d ${SOURCE_DIR}/dotfiles_backup_$timestamp ]]; then
-			mkdir ${SOURCE_DIR}/dotfiles_backup_$timestamp
-    		echo "Moving current dotfiles in ${SOURCE_DIR}/backup_${timestamp}"
+
+for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
+	if [[ -f ~/$file ]]; then
+		if [[ ! -d ${SOURCE_DIR}/backup_$timestamp ]]; then
+			mkdir ${SOURCE_DIR}/backup_$timestamp
 		fi
-		mv $file ${SOURCE_DIR}/dotfiles_backup_${timestamp}/$file
+    	echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${timestamp}"
+		mv ~/$file ${SOURCE_DIR}/dotfiles_backup_${timestamp}/$file
 	fi
-    echo "Creating symlink to $file in $HOME ..."
-    ln -sf $file $HOME/$file
+    echo "Creating symlink to ${SOURCE_DIR}/${file} in ~/ ..."
+    ln -sf ${SOURCE_DIR}/$file ~/$file
 done
 
 
