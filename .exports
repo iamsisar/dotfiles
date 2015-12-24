@@ -10,6 +10,11 @@ if which brew > /dev/null; then
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 fi
 
+# Bash completions
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 # Enable rbenv shims and autocompletion.
 if which rbenv > /dev/null; then
 	eval "$(rbenv init -)"

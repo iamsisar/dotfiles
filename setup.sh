@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | tr -d '\r')"
+TIMESTAMP=$(date +%Y%m%d%H%m)
 
 # Make ~/.bin folder
 if [[ ! -d $HOME/.bin/ ]]; then
@@ -16,7 +17,6 @@ cd $SOURCE_DIR;
 git pull origin master;
 
 # Symlink dotfiles and backup old ones if any
-timestamp=$(date +%Y%m%d%H%m)
 
 for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
 
@@ -24,13 +24,13 @@ for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_g
 	if [[ -f ~/$file && ! -h ~/$file ]]; then
 
 		# create backup directory if necessary
-		if [[ ! -d ${SOURCE_DIR}/backup_$timestamp ]]; then
-			mkdir ${SOURCE_DIR}/backup_$timestamp
+		if [[ ! -d ${SOURCE_DIR}/backup_${TIMESTAMP} ]]; then
+			mkdir ${SOURCE_DIR}/backup_${TIMESTAMP}
 		fi
 
 		# move old files
-    	echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${timestamp}"
-		mv ~/$file ${SOURCE_DIR}/backup_${timestamp}/$file
+    	echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${TIMESTAMP}"
+		mv ~/$file ${SOURCE_DIR}/backup_${TIMESTAMP}/$file
 	fi
 
 	# link new files
@@ -65,6 +65,7 @@ sudo -v
 npm install -g grunt-cli
 npm install -g gulp
 npm install -g bower
+npm install -g browser-sync
 
 
 # Setting up the sublime symlink
