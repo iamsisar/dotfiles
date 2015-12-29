@@ -51,6 +51,7 @@ which ruby
 gem update --system
 
 gem install bundler
+rbenv rehash
 
 # Install MySql
 echo -e "${LIGHT_BLUE}Installing MySql..."

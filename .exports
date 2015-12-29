@@ -1,8 +1,6 @@
 # Load rbenv and set gem paths
 if which rbenv > /dev/null && which brew > /dev/null; then
 	export RBENV_ROOT="$(brew --prefix rbenv)"
-	export GEM_HOME="$(brew --prefix)/opt/gems"
-	export GEM_PATH="$(brew --prefix)/opt/gems";
 fi
 
 # Homebrew Casks app directory
