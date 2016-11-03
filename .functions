@@ -22,3 +22,20 @@ function fs() {
 
 chrome() { open /Applications/Google\ Chrome.app $@; }
 
+# cd to wp-content/themes dir
+wptheme(){
+
+	if [ -d wp-content/themes/$1 ]; then
+		cd wp-content/themes/$1/$2
+	else
+		cd wp-content/themes/
+	fi;
+}
+
+_wpthemeComplete ()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(find $PWD -type d -maxdepth 2 -name "themes" -execdir ls {} \;)" -- $cur) )
+}
+
+complete -F _wpthemeComplete wptheme

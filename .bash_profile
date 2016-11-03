@@ -35,6 +35,5 @@ echo -e "\n${BROWN}${FORTUNE}${NONE}"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-
 # PS1="${WHITE}\a\n\u@\h on \D{%a %d %b} at \A\n\[\e[m\]\w "
 

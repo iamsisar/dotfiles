@@ -42,6 +42,7 @@ done
 # Enable
 source ~/.bash_profile
 
+xcode-select --install
 
 # Install Ruby
 echo -e "${LIGHT_BLUE}Installing Ruby and Bundler..."
@@ -52,6 +53,25 @@ gem update --system
 
 gem install bundler
 rbenv rehash
+
+# Install PHP
+echo -e "${LIGHT_BLUE}Installing Apache and PHP..."
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/php
+brew tap homebrew/apache
+
+sudo apachectl stop
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+brew install httpd24 --with-privileged-ports --with-http2
+
+sudo cp -v "$(brew list httpd24 | head -1 | sed 's/\(^.*\/httpd24\/[^\/]*\).*/\1/')"/homebrew.mxcl.httpd24.plist /Library/LaunchDaemons
+sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+
+brew install php56 --with-apache
+
 
 # Install MySql
 echo -e "${LIGHT_BLUE}Installing MySql..."

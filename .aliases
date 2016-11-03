@@ -1,8 +1,9 @@
 
 
 alias ..='cd ..'
+alias ..-='cd -'
 alias lsa='ls -a'
-alias lsl='ls -l'
+alias lsl='ls -la'
 
 # Boring
 alias resetbash='source ~/.bash_profile'
@@ -24,3 +25,6 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false 
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 
+# Wordpress persmission
+
+alias wpperm="sudo chown -R _www . ; sudo chmod -R g+w ."
