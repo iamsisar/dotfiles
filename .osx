@@ -95,26 +95,26 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Magicmouse
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonDivision -int 55;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -int TwoButton;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseHorizontalScroll -int 1;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseMomentumScroll -int 1;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDoubleTapGesture -int 0;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseTwoFingerDoubleTapGesture -int 3;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseTwoFingerHorizSwipeGesture -int 2;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseVerticalScroll -int 1;
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse UserPreferences -int 1;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonDivision -int 55;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -int TwoButton;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseHorizontalScroll -int 1;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseMomentumScroll -int 1;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDoubleTapGesture -int 0;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseTwoFingerDoubleTapGesture -int 3;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseTwoFingerHorizSwipeGesture -int 2;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseVerticalScroll -int 1;
+# defaults write com.apple.driver.AppleBluetoothMultitouch.mouse UserPreferences -int 1;
 
 
 # Increase sound quality for Bluetooth headphones/headsets

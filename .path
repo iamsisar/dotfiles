@@ -1,2 +1,5 @@
 # Add `~/bin`
 export PATH="$HOME/.bin:$PATH"
+
+# Yarn
+export PATH="$PATH:`yarn global bin`"

@@ -16,16 +16,15 @@ cd $SOURCE_DIR;
 # Update
 git pull origin master;
 
+
+
 # Symlink dotfiles and backup old ones if any
 
 for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
 
-	# check for old dotfiles
-	if [[ -f ~/$file && ! -h ~/$file ]]; then
 
 		# create backup directory if necessary
 		if [[ ! -d ${SOURCE_DIR}/backup_${TIMESTAMP} ]]; then
-			mkdir ${SOURCE_DIR}/backup_${TIMESTAMP}
 		fi
 
 		# move old files
@@ -70,7 +69,7 @@ sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
 sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
 
-brew install php56 --with-apache
+brew install php56 --with-httpd24
 
 
 # Install MySql
@@ -92,3 +91,5 @@ npm install -g browser-sync
 # Setting up the sublime symlink
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/.bin/subl
 
+# Add git completions
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion
