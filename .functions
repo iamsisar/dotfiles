@@ -39,3 +39,24 @@ _wpthemeComplete ()
 }
 
 complete -F _wpthemeComplete wptheme
+
+# cd to ~/dev dir
+cdd(){
+
+	if [ -d ~/dev/$1 ]; then
+		cd ~/dev/$1
+	else
+		cd ~/dev/
+	fi;
+}
+
+_devComplete ()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(find ~ -type d -maxdepth 2 -name "dev" -execdir ls {} \;)" -- $cur) )
+}
+
+complete -F _devComplete cdd
+
+# npm-do
+function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
