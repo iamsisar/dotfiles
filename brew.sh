@@ -28,7 +28,6 @@ brew install imagemagick --with-webp
 brew install youtube-dl
 brew install dockutil
 
-
 # Install Cask
 brew install caskroom/cask/brew-cask
 
@@ -38,6 +37,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Install native apps
 brew cask install iterm2
 brew cask install sublime-text
+brew cask install atom
 brew cask install filezilla
 
 brew cask install google-chrome
@@ -50,10 +50,9 @@ brew cask install dropbox
 brew cask install google-drive
 brew cask install skype
 brew cask install evernote
+brew cask install libreoffice
 brew cask install the-unarchiver
 
 brew cask install transmission
 brew cask install vlc
 brew cask install spotify
-
-
