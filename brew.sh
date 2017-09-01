@@ -33,10 +33,12 @@ brew install caskroom/cask/brew-cask
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-
-# Install native apps
 brew cask install iterm2
+
 brew cask install sublime-text
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.bin/subl
+git config --global core.editor "subl -n -w"
+
 brew cask install atom
 brew cask install visual-studio-code
 brew cask install filezilla
@@ -53,7 +55,6 @@ brew cask install skype
 brew cask install evernote
 brew cask install libreoffice
 brew cask install the-unarchiver
-
 brew cask install transmission
 brew cask install vlc
 brew cask install spotify

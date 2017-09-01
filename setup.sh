@@ -4,10 +4,17 @@ SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | tr -d '\r')"
 TIMESTAMP=$(date +%Y%m%d%H%m)
 
 # Make ~/.bin folder
-if [[ ! -d $HOME/.bin/ ]]; then
-  info "creating local bin folder"
-  mkdir $HOME/.bin/
-  success "$HOME/.bin/ Done"
+if [[ ! -d ${HOME}/.bin/ ]]; then
+  info "creating ~/.bin folder"
+  mkdir ${HOME}/.bin/
+  success "${HOME}/.bin/ Done"
+fi
+
+# Make ~/dev folder
+if [[ ! -d ${HOME}/.bin/ ]]; then
+  info "creating ~/dev folder"
+  mkdir ${HOME}/dev/
+  success "${HOME}/dev/ Done"
 fi
 
 # cd to dotfiles dir
@@ -16,31 +23,32 @@ cd $SOURCE_DIR;
 # Update
 git pull origin master;
 
-
-
 # Symlink dotfiles and backup old ones if any
-
 for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
 
+    # check if file exists and if it's a symlink
+    if [[ -f ${HOME}/$file && ! -h ${HOME}/$file ]]; then
 
-		# create backup directory if necessary
-		if [[ ! -d ${SOURCE_DIR}/backup_${TIMESTAMP} ]]; then
-		fi
+        # create backup directory if not already present
+        if [[ ! -d ${SOURCE_DIR}/backup_${TIMESTAMP} ]]; then
+            mkdir ${SOURCE_DIR}/backup_${TIMESTAMP}
+        fi
 
-		# move old files
-    	echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${TIMESTAMP}"
-		mv ~/$file ${SOURCE_DIR}/backup_${TIMESTAMP}/$file
-	fi
+        # move old file to backup directory
+        echo -e "Moving ${CYAN}${file} ${NONE}in ${SOURCE_DIR}/backup_${TIMESTAMP}"
+        mv ${HOME}/$file ${SOURCE_DIR}/backup_${TIMESTAMP}/$file
+    fi
 
-	# link new files
+	# link new file
     echo -e "Creating symlink to ${SOURCE_DIR}/${CYAN}${file}${NONE} in HOME ..."
-    ln -sf ${SOURCE_DIR}/$file ~/$file
+    ln -sf ${SOURCE_DIR}/$file ${HOME}/$file
 done
 
 
 # Enable
-source ~/.bash_profile
+source ${HOME}/.bash_profile
 
+# Install Xcode
 xcode-select --install
 
 # Install Ruby
@@ -71,14 +79,13 @@ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
 
 brew install php56 --with-httpd24
 
-
 # Install MySql
 echo -e "${LIGHT_BLUE}Installing MySql..."
 brew install mysql
 mysql.server start
 mysql_secure_installation
-ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents 
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+ln -sfv /usr/local/opt/mysql/*.plist ${HOME}/Library/LaunchAgents 
+launchctl load ${HOME}/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 # Node packages
 sudo -v
@@ -87,9 +94,5 @@ npm install -g gulp
 npm install -g bower
 npm install -g browser-sync
 
-
-# Setting up the sublime symlink
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/.bin/subl
-
 # Add git completions
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${HOME}/.git-completion
