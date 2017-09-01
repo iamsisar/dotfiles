@@ -34,7 +34,6 @@ brew install caskroom/cask/brew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 brew cask install iterm2
-
 brew cask install sublime-text
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.bin/subl
 git config --global core.editor "subl -n -w"
