@@ -36,6 +36,8 @@ ln -s "${HOME}/Dropbox/.appdata/.atom" "${HOME}/.atom"
 # Visual Studio Code dir symlink
 rm -rf "${HOME}/.vscode"
 ln -s "${HOME}/Dropbox/.appdata/.vscode" "${HOME}/.vscode"
+rm -rf "${HOME}/Library/Application Support/Code/User"
+ln -s "${HOME}/Dropbox/.appdata/Code/User" "${HOME}/Library/Application Support/Code"
 
 # Filezilla settings symlinks
 for file in filters.xml sitemanager.xml filezilla.xml; do
