@@ -94,5 +94,8 @@ npm install -g gulp
 npm install -g bower
 npm install -g browser-sync
 
-# Add git completions
+# Git completions
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${HOME}/.git-completion
+
+# Git global ignore
+git config --global core.excludesfile ~/.gitignore_global
