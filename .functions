@@ -44,7 +44,7 @@ complete -F _wpthemeComplete wptheme
 cdd(){
 
 	if [ -d ~/dev/$1 ]; then
-		cd ~/dev/$1
+		cd -P ~/dev/$1
 	else
 		cd ~/dev/
 	fi;
