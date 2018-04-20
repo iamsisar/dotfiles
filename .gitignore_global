@@ -8,7 +8,6 @@
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
 
@@ -52,12 +51,15 @@ sftp-config*
 *.sublime-*
 ftpsync.settings
 
+# VS Code #
+# -------------------------------
+
+*.code-*
+
+
 # HG
 # -------------------------------
 
 .hg
 
-
-# switch to regexp syntax.
-# -------------------------------
-syntax: regexp
+Icon
