@@ -22,3 +22,5 @@ fi
 if which subl > /dev/null; then
 	export EDITOR="${HOME}/.bin/subl"
 fi
+
+eval $(thefuck --alias)

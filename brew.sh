@@ -21,6 +21,7 @@ brew install mongodb
 brew install fortune
 brew install wget
 brew install tree
+brew install thefuck
 
 brew install fortune
 brew install imagemagick --with-webp
