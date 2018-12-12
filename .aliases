@@ -3,6 +3,16 @@ alias ..-='cd -'
 alias lsa='ls -a'
 alias lsl='ls -la'
 
+function fuckaliases(){
+    i=3
+    while [ $i -le 5 ]; do
+        effsforfucks=$(eval printf "f%0.s" {1..$i})
+        alias "$effsforfucks"="fuck"
+        i=`expr $i + 1`
+    done
+}
+fuckaliases
+
 # Boring
 alias resetbash='source ~/.bash_profile'
 

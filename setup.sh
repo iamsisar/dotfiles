@@ -51,16 +51,6 @@ source ${HOME}/.bash_profile
 # Install Xcode
 xcode-select --install
 
-# Install Ruby
-echo -e "${LIGHT_BLUE}Installing Ruby and Bundler..."
-rbenv install 2.2.3
-rbenv global 2.2.3
-which ruby
-gem update --system
-
-gem install bundler
-rbenv rehash
-
 # Install PHP
 echo -e "${LIGHT_BLUE}Installing Apache and PHP..."
 brew tap homebrew/dupes

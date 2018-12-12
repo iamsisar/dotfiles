@@ -14,9 +14,6 @@ brew upgrade
 # Install Homebrew formulae
 brew install git
 brew install node
-brew install rbenv
-brew install ruby-build
-brew install mongodb
 
 brew install fortune
 brew install wget
