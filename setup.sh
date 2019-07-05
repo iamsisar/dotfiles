@@ -49,40 +49,40 @@ done
 source ${HOME}/.bash_profile
 
 # Install Xcode
-xcode-select --install
+# xcode-select --install
 
 # Install PHP
-echo -e "${LIGHT_BLUE}Installing Apache and PHP..."
-brew tap homebrew/dupes
-brew tap homebrew/versions
-brew tap homebrew/php
-brew tap homebrew/apache
+# echo -e "${LIGHT_BLUE}Installing Apache and PHP..."
+# brew tap homebrew/dupes
+# brew tap homebrew/versions
+# brew tap homebrew/php
+# brew tap homebrew/apache
 
-sudo apachectl stop
-sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
-brew install httpd24 --with-privileged-ports --with-http2
+# sudo apachectl stop
+# sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+# brew install httpd24 --with-privileged-ports --with-http2
 
-sudo cp -v "$(brew list httpd24 | head -1 | sed 's/\(^.*\/httpd24\/[^\/]*\).*/\1/')"/homebrew.mxcl.httpd24.plist /Library/LaunchDaemons
-sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
-sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
-sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+# sudo cp -v "$(brew list httpd24 | head -1 | sed 's/\(^.*\/httpd24\/[^\/]*\).*/\1/')"/homebrew.mxcl.httpd24.plist /Library/LaunchDaemons
+# sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+# sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+# sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
 
-brew install php56 --with-httpd24
+# brew install php56 --with-httpd24
 
 # Install MySql
-echo -e "${LIGHT_BLUE}Installing MySql..."
-brew install mysql
-mysql.server start
-mysql_secure_installation
-ln -sfv /usr/local/opt/mysql/*.plist ${HOME}/Library/LaunchAgents 
-launchctl load ${HOME}/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+# echo -e "${LIGHT_BLUE}Installing MySql..."
+# brew install mysql
+# mysql.server start
+# mysql_secure_installation
+# ln -sfv /usr/local/opt/mysql/*.plist ${HOME}/Library/LaunchAgents 
+# launchctl load ${HOME}/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 # Node packages
-sudo -v
-npm install -g grunt-cli
-npm install -g gulp
-npm install -g bower
-npm install -g browser-sync
+# sudo -v
+# npm install -g grunt-cli
+# npm install -g gulp
+# npm install -g bower
+# npm install -g browser-sync
 
 # Git completions
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${HOME}/.git-completion
