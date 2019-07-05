@@ -30,8 +30,8 @@ ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Installed Packages" "${HOME}/Libr
 ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Packages" "${HOME}/Library/Application Support/Sublime Text 3/Packages"
 
 # Atom Code dir symlink
-rm -rf "${HOME}/.atom"
-ln -s "${HOME}/Dropbox/.appdata/.atom" "${HOME}/.atom"
+# rm -rf "${HOME}/.atom"
+# ln -s "${HOME}/Dropbox/.appdata/.atom" "${HOME}/.atom"
 
 # Visual Studio Code dir symlink
 rm -rf "${HOME}/.vscode"
@@ -40,9 +40,9 @@ rm -rf "${HOME}/Library/Application Support/Code/User"
 ln -s "${HOME}/Dropbox/.appdata/Code/User" "${HOME}/Library/Application Support/Code"
 
 # Filezilla settings symlinks
-for file in filters.xml sitemanager.xml filezilla.xml; do
-	rm -rf "${HOME}/.filezilla/${file}"
-	ln -s "${HOME}/Dropbox/.appdata/.filezilla/${file}" "${HOME}/.filezilla/${file}"
-done
+# for file in filters.xml sitemanager.xml filezilla.xml; do
+# 	rm -rf "${HOME}/.filezilla/${file}"
+# 	ln -s "${HOME}/Dropbox/.appdata/.filezilla/${file}" "${HOME}/.filezilla/${file}"
+# done
 
 source ~/.bash_profile
