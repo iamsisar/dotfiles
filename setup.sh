@@ -64,3 +64,6 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 
 # Git global ignore
 git config --global core.excludesfile ~/.gitignore_global
+
+# NVM 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash

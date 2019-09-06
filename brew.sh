@@ -13,7 +13,6 @@ brew upgrade
 
 # Install Homebrew formulae
 brew install git
-brew install node
 
 brew install fortune
 brew install wget
