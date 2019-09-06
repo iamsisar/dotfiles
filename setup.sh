@@ -24,7 +24,7 @@ cd $SOURCE_DIR;
 git pull origin master;
 
 # Symlink dotfiles and backup old ones if any
-for file in .aliases .bash_profile .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
+for file in .aliases .bash_profile .bashrc .bash_prompt .exports .functions .gitignore_global .hgignore_global .path; do
 
     # check if file exists and if it's a symlink
     if [[ -f ${HOME}/$file && ! -h ${HOME}/$file ]]; then

@@ -53,7 +53,7 @@ cdd(){
 _devComplete ()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(find ~ -type d -maxdepth 2 -name "dev" -execdir ls {} \;)" -- $cur) )
+    COMPREPLY=( $(compgen -W "$(find ${HOME} -maxdepth 2 -type d,l -iname "dev" -execdir ls -A {} \;)" -- $cur) )
 }
 
 complete -F _devComplete cdd
