@@ -56,9 +56,6 @@ echo -e "Create .bashrc"
 SOURCE_BASHPROFILE_STR="\\nsource \${HOME}/.bash_profile\\n"
 command printf "${SOURCE_BASHPROFILE_STR}" >> "${HOME}/.bashrc"
 
-# Enable
-source ${HOME}/.bash_profile
-
 # Git completions
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${HOME}/.git-completion
 
@@ -67,3 +64,6 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # NVM 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+# Enable
+source ${HOME}/.bash_profile
