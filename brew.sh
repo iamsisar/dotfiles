@@ -36,7 +36,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/
 git config --global core.editor "subl -n -w"
 
 brew cask install visual-studio-code
-brew cask install filezilla
+brew cask install docker
 
 brew cask install google-chrome
 rm /Applications/Google\ Chrome.app
@@ -44,11 +44,12 @@ sudo cp -R /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app /
 
 brew cask install firefox
 
+brew cask install cyberduck
 brew cask install dropbox
-brew cask install google-drive
 brew cask install skype
 brew cask install evernote
 brew cask install the-unarchiver
 brew cask install transmission
 brew cask install vlc
 brew cask install spotify
+brew cask install rambox
