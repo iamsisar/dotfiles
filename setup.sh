@@ -48,13 +48,8 @@ done
 
 # Print in .bash_profile to source them
 echo -e "Append source to .bash_profile"
-SOURCE_STR="\\nfor file in ~/.{variables,path,bash_prompt,exports,aliases,functions,extra,extra_local,\"git-completion\"}; do [ -r \"\$file\" ] && [ -f \"\$file\" ] && source \"\$file\" done \\nunset file\\n\\n"
+SOURCE_STR="\\nfor file in ~/.{variables,path,bash_prompt,exports,aliases,functions,extra,extra_local,\"git-completion\"}; do [ -r \"\$file\" ] && [ -f \"\$file\" ] && source \"\$file\"\\ndone \\nunset file\\n\\n"
 command printf "${SOURCE_STR}" >> "${HOME}/.bash_profile"
-
-# Create .bashrc for Linux compatibility
-echo -e "Create .bashrc"
-SOURCE_BASHPROFILE_STR="\\nsource \${HOME}/.bash_profile\\n"
-command printf "${SOURCE_BASHPROFILE_STR}" >> "${HOME}/.bashrc"
 
 # Git completions
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${HOME}/.git-completion
@@ -65,5 +60,13 @@ git config --global core.excludesfile ~/.gitignore_global
 # NVM 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
+# Create .bashrc for Linux compatibility
+echo -e "Create .bashrc"
+SOURCE_BASHPROFILE_STR="\\nsource \${HOME}/.bash_profile\\n"
+command printf "${SOURCE_BASHPROFILE_STR}" >> "${HOME}/.bashrc"
+
 # Enable
 source ${HOME}/.bash_profile
+
+# Install latest version of node
+nvm install node
