@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # Install command-line tools using Homebrew (if not alredy installed)
-if ! which brew > /dev/null; then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+if ! which brew >/dev/null; then
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
+
+# Add Homebrew to PATH
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+echo 'eval $('${HOMEBREW_PREFIX}'/bin/brew shellenv)' >>${HOME}/.bashrc
 
 # Make sure we’re using the latest Homebrew
 brew update
@@ -12,44 +16,7 @@ brew update
 brew upgrade
 
 # Install Homebrew formulae
-brew install git
 
 brew install fortune
-brew install wget
 brew install tree
 brew install thefuck
-
-brew install fortune
-brew install imagemagick --with-webp
-
-brew install youtube-dl
-brew install dockutil
-
-# Install Cask
-brew install caskroom/cask/brew-cask
-
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-brew cask install iterm2
-brew cask install sublime-text
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.bin/subl
-git config --global core.editor "subl -n -w"
-
-brew cask install visual-studio-code
-brew cask install docker
-
-brew cask install google-chrome
-rm /Applications/Google\ Chrome.app
-sudo cp -R /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app /Applications
-
-brew cask install firefox
-
-brew cask install cyberduck
-brew cask install dropbox
-brew cask install skype
-brew cask install evernote
-brew cask install the-unarchiver
-brew cask install transmission
-brew cask install vlc
-brew cask install spotify
-brew cask install rambox

@@ -1,9 +1,37 @@
 # iamsisar .dotfiles
 
-**Preliminaries**
-`xcode-select --install`
+## Preliminaries for OSX
 
-**Setup**
-1. `./brew.sh`
-2. `./setup.sh`
-3. (optional) `./setup_extras.sh`
+```
+$ xcode-select --install
+```
+
+## Setup
+
+**Install Homebrew and common formulae**
+
+```
+$ ./brew.sh
+```
+
+**Add specific formulae and apps; customize OS**
+
+```
+# osx 
+$ ./osx.sh
+```
+```
+# ubuntu 
+$ ./ubuntu.sh
+```
+
+**Scaffhold home dir**
+
+```
+$ ./setup.sh`
+```
+
+**(optional)** 
+```
+$ ./setup_extras.sh
+```

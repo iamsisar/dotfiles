@@ -2,7 +2,44 @@
 
 # ~/.osx — https://mths.be/osx
 
+# Install brew formulae spicific for OSX 
+brew install git
+brew install wget
+
+# Casks
+brew install caskroom/cask/brew-cask
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+brew cask install iterm2
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Dropbox/.appdata/iTerm2"
+
+brew cask install sublime-text
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.local/bin/subl
+
+brew cask install sublime-merge
+brew cask install visual-studio-code
+brew cask install docker
+
+brew cask install google-chrome
+rm /Applications/Google\ Chrome.app
+sudo cp -R /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app /Applications
+
+brew cask install firefox
+
+brew cask install cyberduck
+brew cask install dropbox
+brew cask install evernote
+brew cask install the-unarchiver
+brew cask install transmission
+brew cask install vlc
+brew cask install spotify
+brew cask install rambox
+
 # Organize dockbar
+brew install dockutil
+
 dockutil --remove "Contacts" --no-restart
 dockutil --remove "Notes" --no-restart
 dockutil --remove "Maps" --no-restart

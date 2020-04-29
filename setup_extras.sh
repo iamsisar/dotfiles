@@ -3,6 +3,10 @@ LIGHT_BLUE='\033[1;34m'
 WHITE='\033[0;97m'
 NONE='\033[00m'
 
+echo -e "${LIGHT_BLUE}Install 'code-settings-sync' extension for VS Code...${NONE}"
+# VS Code settings sync
+code --install-extension Shan.code-settings-sync
+
 # Check for Dropbox folder
 if [[ ! -d ${HOME}/Dropbox ]]; then
     echo -e "${LIGHT_BLUE}Dropbox folder not found in your home."
@@ -12,27 +16,24 @@ if [[ ! -d ${HOME}/Dropbox ]]; then
     read -s -n 1 key
 
     if [[ $key != "" ]]; then
-        exit;
+        exit
     fi
 fi
 
 # Extra dotfile for private settings
 ln -s "${HOME}/Dropbox/.dotfiles/.extra" "${HOME}/.extra"
 
-# iTerm2 preference location
-defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Dropbox/.appdata/iTerm2"
+echo -e "${LIGHT_BLUE}Symlink Sublime Text 3 preferences...${NONE}"
 
 # Sublime Text 3 packages dir symlink
-rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Installed Packages"
-rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages"
-ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Installed Packages" "${HOME}/Library/Application Support/Sublime Text 3/Installed Packages"
-ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Packages" "${HOME}/Library/Application Support/Sublime Text 3/Packages"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    rm -rf "${HOME}/.config/sublime-text-3/Packages/User"
+    ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Packages/User" "${HOME}/.config/sublime-text-3/Packages/User"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -s "${HOME}/Dropbox/.appdata/Sublime Text 3/Packages/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+else
+    echo -e "${YELLOW}Can't tell which OS is in use. Sublime Text settings not symlinked.${NONE}"
+fi
 
-# Visual Studio Code dir symlink
-rm -rf "${HOME}/.vscode"
-ln -s "${HOME}/Dropbox/.appdata/.vscode" "${HOME}/.vscode"
-rm -rf "${HOME}/Library/Application Support/Code/User"
-ln -s "${HOME}/Dropbox/.appdata/Code/User" "${HOME}/Library/Application Support/Code"
-
-source ~/.bash_profile
+source ${HOME}/.bash_profile
