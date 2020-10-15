@@ -2,7 +2,7 @@
 
 # Install command-line tools using Homebrew (if not alredy installed)
 if ! which brew >/dev/null; then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Add Homebrew to PATH
