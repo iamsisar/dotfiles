@@ -24,13 +24,10 @@ brew install caskroom/cask/brew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 brew cask install iterm2
-defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Dropbox/.appdata/iTerm2"
-
 brew cask install sublime-text
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.local/bin/subl
-
 brew cask install sublime-merge
+ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" ${HOME}/.local/bin/smerge
 brew cask install visual-studio-code
 brew cask install docker
 
@@ -40,8 +37,6 @@ sudo cp -R /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app /
 
 brew cask install firefox
 
-brew cask install cyberduck
-brew cask install dropbox
 brew cask install evernote
 brew cask install the-unarchiver
 brew cask install transmission
