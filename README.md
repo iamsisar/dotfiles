@@ -14,6 +14,12 @@ $ xcode-select --install
 $ ./brew.sh
 ```
 
+**Scaffhold home dir**
+
+```
+$ ./setup.sh`
+```
+
 **Add specific formulae and apps; customize OS**
 
 ```
@@ -25,13 +31,3 @@ $ ./osx.sh
 $ ./ubuntu.sh
 ```
 
-**Scaffhold home dir**
-
-```
-$ ./setup.sh`
-```
-
-**(optional)** 
-```
-$ ./setup_extras.sh
-```

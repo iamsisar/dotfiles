@@ -13,9 +13,6 @@ function fuckaliases(){
 }
 fuckaliases
 
-# Boring
-alias resetbash='source ~/.bash_profile'
-
 # Dropbox
 alias dr='cd ${HOME}/Dropbox'
 

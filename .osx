@@ -2,6 +2,18 @@
 
 # ~/.osx — https://mths.be/osx
 
+# Source .bashrc from .bash_profile
+echo -e "Append source to .bashrc from .bash_profile"
+SOURCE_STR="\\nif [ -f ~/.bashrc ]; then\\nsource ~/.bashrc \\nfi\\n\\n"
+command printf "${SOURCE_STR}" >>"${HOME}/.bash_profile"
+
+# Add .extra
+echo -e "Add .extra"
+EXTRA_STR="\\nalias resetbash='source ~/.bash_profile'\\n"
+command printf "${EXTRA_STR}" >>"${HOME}/.extra"
+
+source ${HOME}/.bash_profile
+
 # Install brew formulae spicific for OSX 
 brew install git
 brew install wget

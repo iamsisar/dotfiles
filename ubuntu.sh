@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${HOME}/.bashrc
+
 # Ask for the administrator password upfront
 sudo -v
 

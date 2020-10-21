@@ -24,7 +24,7 @@ cd $SOURCE_DIR
 git pull origin master
 
 # Backup old dotfiles
-for file in .aliases .bash_profile .bashrc .bash_prompt .exports .functions .gitignore_global .path; do
+for file in .aliases .bashrc .bash_prompt .exports .functions .gitignore_global .path; do
 
   # check if file exists and if it's a symlink
   if [[ -f ${HOME}/$file && ! -L ${HOME}/$file ]]; then
@@ -46,9 +46,9 @@ for file in .aliases .bash_prompt .exports .functions .gitignore_global .hgignor
   ln -sf ${SOURCE_DIR}/$file ${HOME}/$file
 done
 
-# Print in .bash_profile to source them
-echo -e "Append source to .bash_profile"
-SOURCE_STR="\\nfor file in ~/.{variables,path,bash_prompt,exports,aliases,functions,extra,extra_local,\"git-completion\"}; do [ -r \"\$file\" ] && [ -f \"\$file\" ] && source \"\$file\"\\ndone \\nunset file\\n\\n"
+# Print in .bashrc to source them
+echo -e "Append source to .bashrc"
+SOURCE_STR="\\nfor file in ~/.{variables,path,bash_prompt,exports,aliases,functions,extra,\"git-completion\"}; do [ -r \"\$file\" ] && [ -f \"\$file\" ] && source \"\$file\"\\ndone \\nunset file\\n\\n"
 command printf "${SOURCE_STR}" >>"${HOME}/.bashrc"
 
 # Git completions
@@ -64,5 +64,5 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 # Install latest version of node
 nvm install node
 
-# Enable
-source ${HOME}/.bash_profile
+echo -e "${PURPLE}Done! Please exec the script for your OS.${NONE}"
+
