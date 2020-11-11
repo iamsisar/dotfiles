@@ -57,6 +57,9 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 # Git config
 git config --global core.excludesfile ~/.gitignore_global
 git config --global core.editor "subl -n -w"
+git config --global mergetool.smerge.cmd 'smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"'
+git config --global mergetool.smerge.trustExitCode true
+git config --global merge.tool smerge
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
