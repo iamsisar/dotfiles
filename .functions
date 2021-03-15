@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Create a new directory and enter it
 function mkcd(){ test -e $1 || mkdir $1; cd $1; }
 
@@ -57,6 +59,24 @@ _devComplete ()
 }
 
 complete -F _devComplete cdd
+
+# open code workspace from ~/dev 
+cow(){
+	if [ -f ~/dev/$1 ]; then
+		code ~/dev/$1
+	else
+		cd ~/dev/
+	fi;
+}
+
+_devCompleteCodeWorkspace ()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(find ${HOME}/dev -maxdepth 1 -type f -name "*.code-workspace"  -execdir ls {} \;)" -- $cur) )
+}
+
+complete -F _devCompleteCodeWorkspace cow
+
 
 # npm-do
 function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
