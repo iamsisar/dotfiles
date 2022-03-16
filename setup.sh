@@ -5,14 +5,14 @@ TIMESTAMP=$(date +%Y%m%d%H%m)
 
 # Make ~/.local/bin folder
 if [[ ! -d ${HOME}/.local/bin/ ]]; then
-  info "creating ~/.local/bin folder"
+  #info "creating ~/.local/bin folder"
   mkdir ${HOME}/.bin/
   success "${HOME}/.local/bin/ Done"
 fi
 
 # Make ~/dev folder
 if [[ ! -d ${HOME}/.bin/ ]]; then
-  info "creating ~/dev folder"
+  #info "creating ~/dev folder"
   mkdir ${HOME}/dev/
   success "${HOME}/dev/ Done"
 fi

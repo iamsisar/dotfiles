@@ -1,5 +1,7 @@
 *~
 
+*fluida-web/asd
+
 # OS generated files #
 # -------------------------------
 
@@ -24,6 +26,8 @@ Thumbs.db
 # -------------------------------
 
 .sass-cache/
+
+.thunder-client
 
 
 # Node.js #
@@ -62,5 +66,5 @@ ftpsync.settings
 
 .hg
 
-Icon
-
+Icon[
+]

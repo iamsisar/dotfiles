@@ -23,4 +23,7 @@ if which subl > /dev/null; then
 	export EDITOR="${HOME}/.bin/subl"
 fi
 
+# Shut up macOS
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 eval $(thefuck --alias)

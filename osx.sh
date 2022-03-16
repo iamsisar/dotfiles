@@ -23,26 +23,26 @@ brew install caskroom/cask/brew-cask
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-brew cask install iterm2
-brew cask install sublime-text
+brew install iterm2 --cask
+brew install sublime-text --cask
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ${HOME}/.local/bin/subl
-brew cask install sublime-merge
+brew install sublime-merge --cask
 ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" ${HOME}/.local/bin/smerge
-brew cask install visual-studio-code
-brew cask install docker
+brew install visual-studio-code --cask
+brew install docker --cask
 
-brew cask install google-chrome
+brew install google-chrome --cask
 rm /Applications/Google\ Chrome.app
 sudo cp -R /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app /Applications
 
-brew cask install firefox
+brew install firefox --cask
 
-brew cask install evernote
-brew cask install the-unarchiver
-brew cask install transmission
-brew cask install vlc
-brew cask install spotify
-brew cask install rambox
+brew install evernote --cask
+brew install the-unarchiver --cask
+brew install transmission --cask
+brew install vlc --cask
+brew install spotify --cask
+brew install rambox --cask
 
 # Organize dockbar
 brew install dockutil
